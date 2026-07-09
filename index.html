@@ -11,8 +11,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* Dark background */
-            color: #E5E7EB; /* Light text */
+            background-color: #000000; /* Black background */
+            color: #FFFFFF; /* White text */
         }
         #bg-canvas {
             position: fixed;
@@ -29,19 +29,19 @@
             margin: 0 auto;
         }
         .card {
-            background-color: #1F2937;
+            background-color: #1a1a1a;
             border-radius: 0.75rem;
             padding: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #374151;
+            border: 1px solid #333333;
         }
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
         }
         .tag {
-            background-color: #374151;
-            color: #D1D5DB;
+            background-color: #333333;
+            color: #FFFFFF;
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
             font-size: 0.875rem;
@@ -51,13 +51,13 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #93C5FD;
+            color: #FFFFFF;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
         .github-link:hover {
-            color: #BFDBFE;
+            color: #CCCCCC;
         }
     </style>
 </head>
@@ -71,11 +71,11 @@
 
             <!-- Desktop Menu (hidden on mobile) -->
             <div class="hidden md:flex items-center gap-8">
-                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#opensource" class="hover:text-blue-400 transition-colors">Open Source</a>
-                <a href="#community" class="hover:text-blue-400 transition-colors">Community</a>
-                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                <a href="#about" class="hover:text-gray-400 transition-colors">About</a>
+                <a href="#projects" class="hover:text-gray-400 transition-colors">Projects</a>
+                <a href="#opensource" class="hover:text-gray-400 transition-colors">Open Source</a>
+                <a href="#community" class="hover:text-gray-400 transition-colors">Community</a>
+                <a href="#contact" class="hover:text-gray-400 transition-colors">Contact</a>
             </div>
 
             <!-- Mobile Menu Button (visible on mobile) -->
@@ -103,7 +103,7 @@
         <section id="home" class="h-screen flex items-center justify-center text-center relative overflow-hidden">
             <div class="z-10">
                 <h1 class="text-4xl md:text-6xl font-bold tracking-tighter mb-4">Ashebir Diriba</h1>
-                <p class="text-xl md:text-2xl text-blue-300">Software Developer</p>
+                <p class="text-xl md:text-2xl text-white">Software Developer</p>
             </div>
         </section>
 
@@ -207,7 +207,7 @@
             <h2 class="text-3xl font-bold text-center mb-10">Open Source Contribution</h2>
             <div class="max-w-3xl mx-auto card text-center">
                 <h3 class="text-3xl font-bold mb-3">ShieldStack</h3>
-                <p class="text-blue-300 font-semibold mb-6">Your all-in-one security middleware for Express.js</p>
+                <p class="text-white font-semibold mb-6">Your all-in-one security middleware for Express.js</p>
                 <p class="text-gray-300 mb-6">
                     ShieldStack simplifies the process of securing Node.js/Express applications by bundling essential security headers and middleware (like Helmet, CORS, rate limiting, etc.) into a single, easy-to-use package. It's designed to provide a strong security posture with minimal configuration.
                 </p>
@@ -225,11 +225,11 @@
                 <img src="truefeed.jpg" alt="True Feed" class="w-full h-64 object-cover mb-6">
                 <div class="p-8">
                     <h3 class="text-3xl font-bold mb-3">Join My Telegram Channel</h3>
-                    <p class="text-blue-300 font-semibold mb-6">@true_feed</p>
+                    <p class="text-white font-semibold mb-6">@true_feed</p>
                     <p class="text-gray-300 mb-6">
                         True Feed focuses on business idea raising with system samples and content idea generation with practical examples. Get inspired with actionable business concepts, system architecture ideas, and content strategies to help you grow your projects and reach your goals.
                     </p>
-                    <a href="https://t.me/true_feed" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                    <a href="https://t.me/true_feed" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-lg transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.64c-1.351.572-1.795 1.79-1.022 3.002l1.583 2.497c.364.575.364 1.297 0 1.872l-1.583 2.497c-.773 1.212-.329 2.43 1.022 3.002l8.609 3.64a2.242 2.242 0 0 0 1.022.215c.796 0 1.44-.67 1.44-1.5v-18c0-.83-.644-1.5-1.44-1.5z"></path></svg>
                         <span>Join Channel</span>
                     </a>
@@ -238,10 +238,10 @@
         </section>
 
         <!-- Contact Section -->
-        <footer id="contact" class="section text-center border-t border-gray-800">
+        <footer id="contact" class="section text-center border-t border-gray-700">
             <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
             <p class="text-gray-400 mb-6 max-w-xl mx-auto">I'm currently open to new opportunities and collaborations. Feel free to reach out via email or connect with me on social media.</p>
-            <a href="mailto:ashed2127@gmail.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+            <a href="mailto:ashed2127@gmail.com" class="inline-block bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-lg transition-colors">
                 Say Hello
             </a>
             <div class="flex justify-center gap-6 mt-10">
@@ -281,7 +281,7 @@
                     antialias: true,
                 });
                 renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setClearColor(0x111827, 1); // Match body background
+                renderer.setClearColor(0x000000, 1); // Match body background
                 
                 // Create particles
                 const particleGeometry = new THREE.BufferGeometry();
@@ -315,7 +315,7 @@
                 
                 // Custom shader material for growing particles
                 const particleMaterial = new THREE.PointsMaterial({
-                    color: 0x1E40AF,
+                    color: 0xFFFFFF,
                     size: 8,
                     transparent: true,
                     opacity: 0.8,
@@ -327,7 +327,7 @@
                 
                 // Create connection lines
                 const lineMaterial = new THREE.LineBasicMaterial({
-                    color: 0x3B82F6,
+                    color: 0xFFFFFF,
                     transparent: true,
                     opacity: 0.4
                 });
