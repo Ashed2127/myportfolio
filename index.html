@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashebir Diriba - Fullstack Developer</title>
+    <title>Ashebir Diriba - Software Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto Mono', monospace;
             background-color: #000000; /* Black background */
             color: #FFFFFF; /* White text */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
         }
         #bg-canvas {
             position: fixed;
@@ -59,15 +62,36 @@
         .github-link:hover {
             color: #CCCCCC;
         }
+        .shimmer-text {
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.25) 0%,
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0.25) 100%
+            );
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
     <canvas id="bg-canvas"></canvas>
 
     <!-- Header Section -->
-    <header class="absolute top-0 left-0 right-0 z-10 p-4">
+    <header id="header" class="fixed top-0 left-0 right-0 z-10 p-4 transition-all duration-300">
         <nav class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tight">AD.</div>
+            <div class="text-2xl font-bold tracking-tight cursor-pointer hover:text-gray-400 transition-colors" onclick="smoothScrollToTop()">AD.</div>
 
             <!-- Desktop Menu (hidden on mobile) -->
             <div class="hidden md:flex items-center gap-8">
@@ -89,7 +113,7 @@
         </nav>
 
         <!-- Mobile Menu Panel (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 mt-2 rounded-lg shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-black/80 backdrop-blur-sm mt-2 rounded-lg shadow-lg">
             <a href="#about" class="block px-4 py-3 text-sm text-gray-200 hover:bg-gray-700">About</a>
             <a href="#projects" class="block px-4 py-3 text-sm text-gray-200 hover:bg-gray-700">Projects</a>
             <a href="#opensource" class="block px-4 py-3 text-sm text-gray-200 hover:bg-gray-700">Open Source</a>
@@ -104,6 +128,7 @@
             <div class="z-10">
                 <h1 class="text-4xl md:text-6xl font-bold tracking-tighter mb-4">Ashebir Diriba</h1>
                 <p class="text-xl md:text-2xl text-white">Software Developer</p>
+                <p class="text-lg md:text-xl shimmer-text italic">Focus on Security & Speed</p>
             </div>
         </section>
 
@@ -113,10 +138,10 @@
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                     <p class="text-lg mb-4 text-gray-300">
-                        I'm a passionate Fullstack Developer with a Bachelor's degree in Computer Science. My expertise lies in building robust applications using a variety of technologies. I thrive on solving complex problems and am dedicated to writing clean, efficient, and secure code.
+                        I'm a Software Developer who focuses on building products from idea to implementation. I enjoy taking concepts and turning them into functional applications that solve real problems.
                     </p>
                     <p class="text-lg text-gray-300">
-                        Beyond development, I have a strong interest in web security, which led me to create an open-source library to help other developers secure their applications more easily. I'm always eager to learn new things and contribute to the tech community.
+                        I work on various projects including web applications, desktop tools, and open-source libraries. I also contribute to the developer community through my work and by sharing knowledge.
                     </p>
                 </div>
                 <div>
@@ -172,8 +197,11 @@
                 </div>
                 <!-- Project 3 -->
                 <div class="card">
-                    <h3 class="text-2xl font-bold mb-2">Manai</h3>
-                    <p class="text-gray-400 mb-6">Manim integrated with AI. A powerful combination that leverages the Manim animation engine enhanced with artificial intelligence capabilities for creating stunning mathematical and educational videos.</p>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold">Manai</h3>
+                        <span class="bg-yellow-500/20 text-yellow-400 text-xs px-2 py-1 rounded">In Development</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Manim integrated with AI. Currently in development, this project aims to combine the Manim animation engine with artificial intelligence capabilities for Motion Video Generation.</p>
                     <div class="flex flex-wrap gap-3 mb-6">
                         <span class="tag">Python</span>
                         <span class="tag">Manim</span>
@@ -258,14 +286,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        // --- Three.js Background Animation (Venom-like particle system) ---
+        // --- Three.js Background Animation (Moving thin lines) ---
         document.addEventListener('DOMContentLoaded', () => {
-            let scene, camera, renderer, particles;
+            let scene, camera, renderer, lines;
             const canvas = document.getElementById('bg-canvas');
-            const particleCount = 150;
-            const particlesArray = [];
-            const connectionDistance = 100;
-            const mergeDistance = 30;
+            const lineCount = 100;
+            const linesArray = [];
             
             function init() {
                 // Scene
@@ -283,161 +309,67 @@
                 renderer.setSize(window.innerWidth, window.innerHeight);
                 renderer.setClearColor(0x000000, 1); // Match body background
                 
-                // Create particles
-                const particleGeometry = new THREE.BufferGeometry();
-                const positions = new Float32Array(particleCount * 3);
-                const sizes = new Float32Array(particleCount);
-                
-                for (let i = 0; i < particleCount; i++) {
-                    positions[i * 3] = (Math.random() - 0.5) * 500;
-                    positions[i * 3 + 1] = (Math.random() - 0.5) * 500;
-                    positions[i * 3 + 2] = (Math.random() - 0.5) * 500;
-                    sizes[i] = 2 + Math.random() * 3;
-                    
-                    particlesArray.push({
-                        x: positions[i * 3],
-                        y: positions[i * 3 + 1],
-                        z: positions[i * 3 + 2],
-                        originalSize: sizes[i],
-                        currentSize: sizes[i],
-                        velocity: {
-                            x: (Math.random() - 0.5) * 0.3,
-                            y: (Math.random() - 0.5) * 0.3,
-                            z: (Math.random() - 0.5) * 0.3
-                        },
-                        target: null,
-                        merged: false
-                    });
-                }
-                
-                particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-                particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-                
-                // Custom shader material for growing particles
-                const particleMaterial = new THREE.PointsMaterial({
-                    color: 0xFFFFFF,
-                    size: 8,
-                    transparent: true,
-                    opacity: 0.8,
-                    sizeAttenuation: true
-                });
-                
-                particles = new THREE.Points(particleGeometry, particleMaterial);
-                scene.add(particles);
-                
-                // Create connection lines
+                // Create thin lines
                 const lineMaterial = new THREE.LineBasicMaterial({
                     color: 0xFFFFFF,
                     transparent: true,
-                    opacity: 0.4
+                    opacity: 0.3
                 });
                 
-                const lineGeometry = new THREE.BufferGeometry();
-                const connectionLines = new THREE.LineSegments(lineGeometry, lineMaterial);
-                scene.add(connectionLines);
-                
-                // Store connection lines for animation
-                particles.connectionLines = connectionLines;
+                for (let i = 0; i < lineCount; i++) {
+                    const points = [];
+                    const lineLength = 50 + Math.random() * 100;
+                    
+                    // Create horizontal lines only
+                    const y = (Math.random() - 0.5) * 600;
+                    const z = (Math.random() - 0.5) * 600;
+                    const startX = (Math.random() - 0.5) * 600;
+                    
+                    points.push(new THREE.Vector3(startX, y, z));
+                    points.push(new THREE.Vector3(startX + lineLength, y, z));
+                    
+                    const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                    const line = new THREE.Line(lineGeometry, lineMaterial.clone());
+                    
+                    // Random direction: left or right
+                    const direction = Math.random() > 0.5 ? 1 : -1;
+                    const speed = 0.5 + Math.random() * 1.5;
+                    
+                    linesArray.push({
+                        line: line,
+                        velocity: {
+                            x: direction * speed,
+                            y: 0,
+                            z: 0
+                        },
+                        rotationSpeed: {
+                            x: 0,
+                            y: 0,
+                            z: 0
+                        }
+                    });
+                    
+                    scene.add(line);
+                }
                 
                 animate();
             }
             
             // Animation Loop
             function animate() {
-                const positions = particles.geometry.attributes.position.array;
-                const sizes = particles.geometry.attributes.size.array;
-                
-                // Update particle positions and sizes
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = particlesArray[i];
+                for (let i = 0; i < lineCount; i++) {
+                    const lineObj = linesArray[i];
                     
-                    // Move towards target if assigned
-                    if (particle.target) {
-                        const dx = particle.target.x - particle.x;
-                        const dy = particle.target.y - particle.y;
-                        const dz = particle.target.z - particle.z;
-                        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-                        
-                        if (dist > mergeDistance) {
-                            particle.velocity.x += dx * 0.001;
-                            particle.velocity.y += dy * 0.001;
-                            particle.velocity.z += dz * 0.001;
-                        } else {
-                            // Grow when close to target
-                            particle.currentSize = Math.min(particle.currentSize + 0.1, particle.originalSize * 2);
-                        }
-                    } else {
-                        // Random movement when no target
-                        particle.velocity.x += (Math.random() - 0.5) * 0.01;
-                        particle.velocity.y += (Math.random() - 0.5) * 0.01;
-                        particle.velocity.z += (Math.random() - 0.5) * 0.01;
-                    }
+                    // Move lines horizontally only
+                    lineObj.line.position.x += lineObj.velocity.x;
                     
-                    // Apply velocity with damping
-                    particle.x += particle.velocity.x;
-                    particle.y += particle.velocity.y;
-                    particle.z += particle.velocity.z;
-                    
-                    particle.velocity.x *= 0.98;
-                    particle.velocity.y *= 0.98;
-                    particle.velocity.z *= 0.98;
-                    
-                    // Boundary check - bounce back
-                    if (Math.abs(particle.x) > 250) particle.velocity.x *= -1;
-                    if (Math.abs(particle.y) > 250) particle.velocity.y *= -1;
-                    if (Math.abs(particle.z) > 250) particle.velocity.z *= -1;
-                    
-                    positions[i * 3] = particle.x;
-                    positions[i * 3 + 1] = particle.y;
-                    positions[i * 3 + 2] = particle.z;
-                    sizes[i] = particle.currentSize;
-                }
-                
-                particles.geometry.attributes.position.needsUpdate = true;
-                particles.geometry.attributes.size.needsUpdate = true;
-                
-                // Create connections and assign targets
-                const linePositions = [];
-                
-                for (let i = 0; i < particleCount; i++) {
-                    for (let j = i + 1; j < particleCount; j++) {
-                        const dx = particlesArray[i].x - particlesArray[j].x;
-                        const dy = particlesArray[i].y - particlesArray[j].y;
-                        const dz = particlesArray[i].z - particlesArray[j].z;
-                        const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
-                        
-                        if (distance < connectionDistance) {
-                            linePositions.push(
-                                particlesArray[i].x, particlesArray[i].y, particlesArray[i].z,
-                                particlesArray[j].x, particlesArray[j].y, particlesArray[j].z
-                            );
-                            
-                            // Assign targets for growth behavior
-                            if (!particlesArray[i].target && Math.random() < 0.01) {
-                                particlesArray[i].target = particlesArray[j];
-                            }
-                            if (!particlesArray[j].target && Math.random() < 0.01) {
-                                particlesArray[j].target = particlesArray[i];
-                            }
-                        } else {
-                            // Reset target when too far
-                            if (particlesArray[i].target === particlesArray[j]) {
-                                particlesArray[i].target = null;
-                                particlesArray[i].currentSize = particlesArray[i].originalSize;
-                            }
-                            if (particlesArray[j].target === particlesArray[i]) {
-                                particlesArray[j].target = null;
-                                particlesArray[j].currentSize = particlesArray[j].originalSize;
-                            }
-                        }
+                    // Boundary check - wrap around
+                    if (lineObj.line.position.x > 600) {
+                        lineObj.line.position.x = -600;
+                    } else if (lineObj.line.position.x < -600) {
+                        lineObj.line.position.x = 600;
                     }
                 }
-                
-                particles.connectionLines.geometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-                
-                // Slowly rotate the entire system
-                particles.rotation.y += 0.002;
-                particles.connectionLines.rotation.y += 0.002;
                 
                 renderer.render(scene, camera);
                 requestAnimationFrame(animate);
@@ -479,6 +411,44 @@
                 mobileMenu.classList.add('hidden');
             });
         });
+
+        // --- Header transparency on scroll ---
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/80', 'backdrop-blur-sm');
+            } else {
+                header.classList.remove('bg-black/80', 'backdrop-blur-sm');
+            }
+        });
+
+        // --- Custom smooth scroll with easing ---
+        function smoothScrollToTop() {
+            const startPosition = window.pageYOffset;
+            const distance = startPosition;
+            const duration = 1500; // 1.5 seconds
+            let start = null;
+
+            function animation(currentTime) {
+                if (start === null) start = currentTime;
+                const timeElapsed = currentTime - start;
+                const progress = Math.min(timeElapsed / duration, 1);
+                
+                // Easing function: slow start, fast middle, slow end
+                const easeInOutQuad = progress < 0.5 
+                    ? 2 * progress * progress 
+                    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+                
+                window.scrollTo(0, startPosition - distance * easeInOutQuad);
+                
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+            
+            requestAnimationFrame(animation);
+        }
     </script>
 </body>
 </html>
