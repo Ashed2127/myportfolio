@@ -1,252 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashebir Diriba</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #1f1e1d;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            background: #f0eee6;
-        }
-        
-        .profile-section {
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .profile-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        
-        .profile-content h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-        
-        .profile-content p {
-            margin-bottom: 0.75rem;
-            color: #1f1e1d;
-        }
-        
-        .social-links {
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            color: #1010ff;
-            text-decoration: none;
-            margin-right: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .social-links a:hover {
-            text-decoration: underline;
-        }
-        
-        h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin: 2.5rem 0 1rem 0;
-            letter-spacing: -0.3px;
-            text-transform: uppercase;
-        }
-        
-        .experience-item {
-            margin-bottom: 1.5rem;
-        }
-        
-        .experience-item h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-        
-        .experience-item .date {
-            color: #666;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-        
-        .project-item {
-            margin-bottom: 1.5rem;
-            padding: 0;
-            background: transparent;
-            border-radius: 0;
-        }
-        
-        .project-item h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-item h3 a {
-            color: #1010ff;
-            text-decoration: none;
-        }
-        
-        .project-item h3 a:hover {
-            text-decoration: underline;
-        }
-        
-        .project-item .authors {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-item .award {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-item p {
-            color: #1f1e1d;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tag {
-            display: inline-block;
-            background: #e8e6dc;
-            padding: 0.15rem 0.4rem;
-            border-radius: 2px;
-            font-size: 0.75rem;
-            margin-right: 0.25rem;
-            margin-bottom: 0.25rem;
-            color: #1f1e1d;
-        }
-        
-        @media (max-width: 600px) {
-            .profile-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .profile-content h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashebir Diriba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f1e9;
+      --text: #1f1e1d;
+      --muted: #5c5a55;
+      --link: #1a1a1a;
+    }
+
+    html.dark {
+      --bg: #1a1917;
+      --text: #e8e4d9;
+      --muted: #a8a49a;
+      --link: #e8e4d9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Newsreader", "Georgia", "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 1.125rem;
+      padding: 4rem 1.5rem 6rem;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .theme-toggle {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: #c8c4b8;
+      border-radius: 999px;
+      cursor: pointer;
+      border: none;
+      flex-shrink: 0;
+      margin-top: 0.4rem;
+    }
+
+    html.dark .theme-toggle {
+      background: #4a4842;
+    }
+
+    .theme-toggle::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background: #1f1e1d;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+    }
+
+    html.dark .theme-toggle::after {
+      transform: translateX(20px);
+      background: #e8e4d9;
+    }
+
+    .bio p {
+      margin-bottom: 1.25rem;
+    }
+
+    .bio a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    .bio a:hover {
+      opacity: 0.7;
+    }
+
+    .links {
+      margin: 1.75rem 0 0;
+      font-size: 1rem;
+    }
+
+    .links a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .links a:hover {
+      opacity: 0.7;
+    }
+
+    section {
+      margin-top: 2.75rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+      letter-spacing: -0.01em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 0.55rem;
+      padding-left: 1.1em;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    ul a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    ul a:hover {
+      opacity: 0.7;
+    }
+
+    .item-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+      margin-bottom: 0.9rem;
+      padding-left: 1.1em;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 2.5rem 1.25rem 4rem;
+        font-size: 1.05rem;
+      }
+      h1 {
+        font-size: 1.85rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="profile-section">
-        <img src="mypic_compressed.jpg" alt="Ashebir Diriba" class="profile-photo">
-        <div class="profile-content">
-            <h1>Ashebir Diriba</h1>
-            <p>I'm a Software Developer who focuses on building products from idea to implementation. I enjoy taking concepts and turning them into functional applications that solve real problems.</p>
-            <p>I work on various projects including web applications, desktop tools, and open-source libraries. I also contribute to the developer community through my work and by sharing knowledge.</p>
-            <p>Before entering tech, I was a self-taught <a href="https://www.instagram.com/ashebir_diriba?igsh=bzgzejJ5cTl3OTlj" target="_blank" style="color: #1010ff;">realistic sketch</a> artist, developing patience, precision, and creative problem-solving skills that continue to shape my work today.</p>
-            <div class="social-links">
-                <a href="mailto:ashed2127@gmail.com">Email</a> / 
-                <a href="https://github.com/ashed2127" target="_blank">GitHub</a> / 
-                <a href="https://www.linkedin.com/in/Ashed2127" target="_blank">LinkedIn</a> / 
-                <a href="https://t.me/true_feed" target="_blank">Telegram</a>
-            </div>
-        </div>
+  <div class="container">
+    <header>
+      <h1>Ashebir Diriba</h1>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+    </header>
+
+    <div class="bio">
+      <p>
+        Ashebir Diriba is a software developer focused on building products from idea to implementation.
+        He works across web applications, desktop tools, and open-source libraries, with an emphasis on
+        turning concepts into functional systems that solve real problems.
+      </p>
+      <p>
+        Previously, Ashebir developed internal tooling and production applications, including platforms
+        for food ordering and table reservation, as well as desktop utilities that automate spreadsheet
+        workflows. He is also the creator of ShieldStack, a security middleware package for Express.js,
+        and continues to explore the intersection of animation and artificial intelligence through
+        projects such as Manai.
+      </p>
+      <p>
+        Before entering technology, Ashebir was a self-taught
+        <a href="https://www.instagram.com/ashebir_diriba?igsh=bzgzejJ5cTl3OTlj" target="_blank" rel="noopener">realistic sketch</a>
+        artist. The discipline, precision, and problem-solving habits developed through that practice
+        continue to shape his approach to software engineering.
+      </p>
+
+      <p class="links">
+        <a href="mailto:ashed2127@gmail.com">Email</a> /
+        <a href="https://github.com/ashed2127" target="_blank" rel="noopener">GitHub</a> /
+        <a href="https://www.linkedin.com/in/Ashed2127" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
     </div>
 
-    <h2>Projects</h2>
-    
-    <div class="project-item">
-        <h3><a href="https://github.com/ashed2127/FT-Project" target="_blank">FT - Project</a></h3>
-        <p>A comprehensive platform for users to order food for delivery and reserve tables at their favorite restaurants. Built with a modern stack to ensure a seamless user experience.</p>
-        <div>
-            <span class="tag">Vue</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">MySQL</span>
-        </div>
-    </div>
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="https://github.com/ashed2127/FT-Project" target="_blank" rel="noopener">FT – Project</a></li>
+      </ul>
+      <p class="item-desc">
+        A comprehensive platform for users to order food for delivery and reserve tables at their favorite restaurants.
+        Built with Vue, Node.js, Express and MySQL.
+      </p>
 
-    <div class="project-item">
-        <h3><a href="https://github.com/ashed2127/filtro" target="_blank">Filtro</a></h3>
-        <p>Developed to solve a real-time consuming problem in my current working company. A lightweight Windows 10 desktop application that eliminates manual spreadsheet filtering and customizing excel.</p>
-        <div>
-            <span class="tag">Python</span>
-            <span class="tag">CustomTkinter</span>
-            <span class="tag">Pandas</span>
-        </div>
-    </div>
+      <ul>
+        <li><a href="https://github.com/ashed2127/filtro" target="_blank" rel="noopener">Filtro</a></li>
+      </ul>
+      <p class="item-desc">
+        A lightweight Windows desktop application that eliminates manual spreadsheet filtering and customizing Excel.
+        Built with Python, CustomTkinter and Pandas.
+      </p>
 
-    <div class="project-item">
-        <h3><a href="https://github.com/ashed2127/manai" target="_blank">Manai</a></h3>
-        <p>Manim integrated with AI. Currently in development, this project aims to combine the Manim animation engine with artificial intelligence capabilities for Motion Video Generation.</p>
-        <div>
-            <span class="tag">Python</span>
-            <span class="tag">Manim</span>
-            <span class="tag">AI</span>
-            <span class="tag">Animation</span>
-        </div>
-    </div>
+      <ul>
+        <li><a href="https://github.com/ashed2127/manai" target="_blank" rel="noopener">Manai</a></li>
+      </ul>
+      <p class="item-desc">
+        Manim integrated with AI. Currently in development — combining the Manim animation engine with artificial intelligence for motion video generation.
+      </p>
 
-    <div class="project-item">
-        <h3><a href="https://trulink.netlify.app/" target="_blank">TrueLink</a></h3>
-        <p>TrueLink is a New Portable for telegram users! It provides efficient search capabilities to help users find content, groups, and channels within the Telegram ecosystem.</p>
-        <div>
-            <span class="tag">Telegram</span>
-            <span class="tag">Portable</span>
-            <span class="tag">Python</span>
-        </div>
-    </div>
+      <ul>
+        <li><a href="https://trulink.netlify.app/" target="_blank" rel="noopener">TrueLink</a></li>
+      </ul>
+      <p class="item-desc">
+        A portable tool for Telegram users that provides efficient search capabilities to find content, groups and channels.
+      </p>
+    </section>
 
-    <h2>Open Source</h2>
-    
-    <div class="project-item">
-        <h3><a href="https://github.com/ashed2127/Shield-Stack" target="_blank">ShieldStack</a></h3>
-        <p>Your all-in-one security middleware for Express.js. ShieldStack simplifies the process of securing Node.js/Express applications by bundling essential security headers and middleware (like Helmet, CORS, rate limiting, etc.) into a single, easy-to-use package.</p>
-        <div>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">Security</span>
-        </div>
-    </div>
+    <section>
+      <h2>Open Source</h2>
+      <ul>
+        <li><a href="https://github.com/ashed2127/Shield-Stack" target="_blank" rel="noopener">ShieldStack</a></li>
+      </ul>
+      <p class="item-desc">
+        All-in-one security middleware for Express.js. Bundles essential security headers and middleware
+        (Helmet, CORS, rate limiting, etc.) into a single, easy-to-use package.
+      </p>
+    </section>
 
-    <h2>Community</h2>
-    
-    <div class="project-item">
-        <h3><a href="https://t.me/true_feed" target="_blank">True Feed</a></h3>
-        <p>True Feed focuses on business idea raising with system samples and content idea generation with practical examples. Get inspired with actionable business concepts, system architecture ideas, and content strategies to help you grow your projects and reach your goals.</p>
-        <div>
-            <span class="tag">Telegram</span>
-            <span class="tag">Community</span>
-            <span class="tag">Business Ideas</span>
-        </div>
-    </div>
+    <section>
+      <h2>Community</h2>
+      <ul>
+        <li><a href="https://t.me/true_feed" target="_blank" rel="noopener">True Feed</a></li>
+      </ul>
+      <p class="item-desc">
+        Focuses on business idea raising with system samples and content idea generation with practical examples.
+      </p>
+    </section>
 
-    <h2>Tech Stack</h2>
-    <div>
-        <span class="tag">Node.js</span>
-        <span class="tag">Express.js</span>
-        <span class="tag">React</span>
-        <span class="tag">Vue.js</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">Tailwind CSS</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Telegram Bot API</span>
-        <span class="tag">Git & GitHub</span>
-        <span class="tag">Python</span>
-    </div>
+    <section>
+      <h2>Tech Stack</h2>
+      <ul>
+        <li>Node.js · Express.js · React · Vue.js</li>
+        <li>MySQL · Tailwind CSS · JavaScript · Python</li>
+        <li>Telegram Bot API · Git &amp; GitHub</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
