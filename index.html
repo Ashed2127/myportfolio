@@ -3,479 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashebir Diriba - Software Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <title>Ashebir Diriba</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Roboto Mono', monospace;
-            background-color: #000000; /* Black background */
-            color: #FFFFFF; /* White text */
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Orbitron', sans-serif;
-        }
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .section {
-            /* Reduced vertical padding */
-            padding: 4rem 1rem;
-            max-width: 1200px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1f1e1d;
+            max-width: 700px;
             margin: 0 auto;
+            padding: 3rem 1.5rem;
+            background: #f0eee6;
         }
-        .card {
-            background-color: #1a1a1a;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #333333;
+        
+        .profile-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
         }
-        .tag {
-            background-color: #333333;
-            color: #FFFFFF;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
+        
+        .profile-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
         }
-        .github-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #FFFFFF;
+        
+        .profile-content p {
+            margin-bottom: 0.75rem;
+            color: #1f1e1d;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: #1010ff;
             text-decoration: none;
+            margin-right: 0.5rem;
             font-weight: 500;
-            transition: color 0.3s ease;
         }
-        .github-link:hover {
-            color: #CCCCCC;
+        
+        .social-links a:hover {
+            text-decoration: underline;
         }
-        .shimmer-text {
-            background: linear-gradient(
-                90deg,
-                rgba(255, 255, 255, 0.25) 0%,
-                rgba(255, 255, 255, 1) 50%,
-                rgba(255, 255, 255, 0.25) 100%
-            );
-            background-size: 200% 100%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s ease-in-out infinite;
+        
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem 0;
+            letter-spacing: -0.3px;
+            text-transform: uppercase;
         }
-        @keyframes shimmer {
-            0% {
-                background-position: 200% 0;
+        
+        .experience-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .experience-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .experience-item .date {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        
+        .project-item {
+            margin-bottom: 1.5rem;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+        }
+        
+        .project-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-item h3 a {
+            color: #1010ff;
+            text-decoration: none;
+        }
+        
+        .project-item h3 a:hover {
+            text-decoration: underline;
+        }
+        
+        .project-item .authors {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-item .award {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-item p {
+            color: #1f1e1d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #e8e6dc;
+            padding: 0.15rem 0.4rem;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            margin-right: 0.25rem;
+            margin-bottom: 0.25rem;
+            color: #1f1e1d;
+        }
+        
+        @media (max-width: 600px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
-            100% {
-                background-position: -200% 0;
+            
+            .profile-content h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
-<body class="antialiased">
-    <canvas id="bg-canvas"></canvas>
-
-    <!-- Header Section -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-10 p-4 transition-all duration-300">
-        <nav class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tight cursor-pointer hover:text-gray-400 transition-colors" onclick="smoothScrollToTop()">AD.</div>
-
-            <!-- Desktop Menu (hidden on mobile) -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#about" class="hover:text-gray-400 transition-colors">About</a>
-                <a href="#background" class="hover:text-gray-400 transition-colors">Background</a>
-                <a href="#projects" class="hover:text-gray-400 transition-colors">Projects</a>
-                <a href="#opensource" class="hover:text-gray-400 transition-colors">Open Source</a>
-                <a href="#community" class="hover:text-gray-400 transition-colors">Community</a>
-                <a href="#contact" class="hover:text-gray-400 transition-colors">Contact</a>
+<body>
+    <div class="profile-section">
+        <img src="mypic_compressed.jpg" alt="Ashebir Diriba" class="profile-photo">
+        <div class="profile-content">
+            <h1>Ashebir Diriba</h1>
+            <p>I'm a Software Developer who focuses on building products from idea to implementation. I enjoy taking concepts and turning them into functional applications that solve real problems.</p>
+            <p>I work on various projects including web applications, desktop tools, and open-source libraries. I also contribute to the developer community through my work and by sharing knowledge.</p>
+            <p>Before entering tech, I was a self-taught <a href="https://www.instagram.com/ashebir_diriba?igsh=bzgzejJ5cTl3OTlj" target="_blank" style="color: #1010ff;">realistic sketch</a> artist, developing patience, precision, and creative problem-solving skills that continue to shape my work today.</p>
+            <div class="social-links">
+                <a href="mailto:ashed2127@gmail.com">Email</a> / 
+                <a href="https://github.com/ashed2127" target="_blank">GitHub</a> / 
+                <a href="https://www.linkedin.com/in/Ashed2127" target="_blank">LinkedIn</a> / 
+                <a href="https://t.me/true_feed" target="_blank">Telegram</a>
             </div>
-
-            <!-- Mobile Menu Button (visible on mobile) -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-400 hover:text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-
-        <!-- Mobile Menu Panel (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/80 backdrop-blur-sm mt-2 rounded-lg shadow-lg">
-            <a href="#about" class="block px-4 py-3 text-sm text-gray-200 hover:bg-gray-700">About</a>
-            <a href="#background" class="block px-4 py-3 text-sm text-gray-200 hover:bg-gray-700">Background</a>
-            <a href="#projects" class="block px-4 py-3 text-sm text-gray-200 hover:bg-gray-700">Projects</a>
-            <a href="#opensource" class="block px-4 py-3 text-sm text-gray-200 hover:bg-gray-700">Open Source</a>
-            <a href="#community" class="block px-4 py-3 text-sm text-gray-200 hover:bg-gray-700">Community</a>
-            <a href="#contact" class="block px-4 py-3 text-sm text-gray-200 hover:bg-gray-700">Contact</a>
         </div>
-    </header>
+    </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="h-screen flex items-center justify-center text-center relative overflow-hidden">
-            <div class="z-10">
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tighter mb-4">Ashebir Diriba</h1>
-                <p class="text-xl md:text-2xl text-white">Software Developer</p>
-                <p class="text-lg md:text-xl shimmer-text italic">Focus on Speed & Security</p>
-            </div>
-        </section>
+    <h2>Projects</h2>
+    
+    <div class="project-item">
+        <h3><a href="https://github.com/ashed2127/FT-Project" target="_blank">FT - Project</a></h3>
+        <p>A comprehensive platform for users to order food for delivery and reserve tables at their favorite restaurants. Built with a modern stack to ensure a seamless user experience.</p>
+        <div>
+            <span class="tag">Vue</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">MySQL</span>
+        </div>
+    </div>
 
-        <!-- About Section -->
-        <section id="about" class="section">
-            <h2 class="text-3xl font-bold text-center mb-10">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <p class="text-lg mb-4 text-gray-300">
-                        I'm a Software Developer who focuses on building products from idea to implementation. I enjoy taking concepts and turning them into functional applications that solve real problems.
-                    </p>
-                    <p class="text-lg text-gray-300">
-                        I work on various projects including web applications, desktop tools, and open-source libraries. I also contribute to the developer community through my work and by sharing knowledge.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">My Tech Stack</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Express.js</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">Tailwind CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Telegram Bot API</span>
-                        <span class="tag">Git & GitHub</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="project-item">
+        <h3><a href="https://github.com/ashed2127/filtro" target="_blank">Filtro</a></h3>
+        <p>Developed to solve a real-time consuming problem in my current working company. A lightweight Windows 10 desktop application that eliminates manual spreadsheet filtering and customizing excel.</p>
+        <div>
+            <span class="tag">Python</span>
+            <span class="tag">CustomTkinter</span>
+            <span class="tag">Pandas</span>
+        </div>
+    </div>
 
-        <!-- My Background Section -->
-        <section id="background" class="section">
-            <h2 class="text-3xl font-bold text-center mb-10">My Background</h2>
-            <div class="max-w-3xl mx-auto card text-center">
-                <p class="text-lg text-gray-300 mb-6">
-                    Before entering tech, I was a self-taught realistic sketch artist, developing patience, precision, and creative problem-solving skills that continue to shape my work today.
-                </p>
-                <a href="https://www.instagram.com/ashebir_diriba?igsh=bzgzejJ5cTl3OTlj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white font-bold py-3 px-8 rounded-lg transition-all transform hover:scale-105">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    <span>View My Art on Instagram</span>
-                </a>
-            </div>
-        </section>
+    <div class="project-item">
+        <h3><a href="https://github.com/ashed2127/manai" target="_blank">Manai</a></h3>
+        <p>Manim integrated with AI. Currently in development, this project aims to combine the Manim animation engine with artificial intelligence capabilities for Motion Video Generation.</p>
+        <div>
+            <span class="tag">Python</span>
+            <span class="tag">Manim</span>
+            <span class="tag">AI</span>
+            <span class="tag">Animation</span>
+        </div>
+    </div>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <h2 class="text-3xl font-bold text-center mb-10">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold mb-2">FT - Project</h3>
-                    <p class="text-gray-400 mb-4">A comprehensive platform for users to order food for delivery and reserve tables at their favorite restaurants. Built with a modern stack to ensure a seamless user experience.</p>
-                    <div class="flex flex-wrap gap-3 mb-4">
-                        <span class="tag">Vue</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Express</span>
-                        <span class="tag">MySQL</span>
-                    </div>
-                    <a href="https://github.com/ashed2127/FT-Project" target="_blank" rel="noopener noreferrer" class="github-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        <span>View on GitHub</span>
-                    </a>
-                </div>
-                <!-- Project 2 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold mb-2">Filtro</h3>
-                    <p class="text-gray-400 mb-4">Developed to solve a real-time consuming problem in my current working company. A lightweight Windows 10 desktop application that eliminates manual spreadsheet filtering and customizing excel</p>
-                    <div class="flex flex-wrap gap-3 mb-4">
-                        <span class="tag">Python</span>
-                        <span class="tag">CustomTkinter</span>
-                        <span class="tag">Pandas</span>
-                    </div>
-                    <a href="https://github.com/ashed2127/filtro" target="_blank" rel="noopener noreferrer" class="github-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        <span>View on GitHub</span>
-                    </a>
-                </div>
-                <!-- Project 3 -->
-                <div class="card">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-2xl font-bold">Manai</h3>
-                        <span class="bg-yellow-500/20 text-yellow-400 text-xs px-2 py-1 rounded">In Development</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Manim integrated with AI. Currently in development, this project aims to combine the Manim animation engine with artificial intelligence capabilities for Motion Video Generation.</p>
-                    <div class="flex flex-wrap gap-3 mb-4">
-                        <span class="tag">Python</span>
-                        <span class="tag">Manim</span>
-                        <span class="tag">AI</span>
-                        <span class="tag">Animation</span>
-                    </div>
-                    <a href="https://github.com/ashed2127/manai" target="_blank" rel="noopener noreferrer" class="github-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        <span>View on GitHub</span>
-                    </a>
-                </div>
-                <!-- Project 4 -->
-                <div class="card">
-                    <h3 class="text-2xl font-bold mb-2">TrueLink</h3>
-                    <p class="text-gray-400 mb-4">TrueLink is a New Portable for telegram users! It provides efficient search capabilities to help users find content, groups, and channels within the Telegram ecosystem.</p>
-                    <div class="flex flex-wrap gap-3 mb-4">
-                        <span class="tag">Telegram</span>
-                        <span class="tag">Portable</span>
-                        <span class="tag">Python</span>
-                    </div>
-                    <div class="flex gap-4">
-                        <a href="https://trulink.netlify.app/" target="_blank" rel="noopener noreferrer" class="github-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                            <span>View Site</span>
-                        </a>
-                        <a href="https://github.com/ashed2127/TrueLink" target="_blank" rel="noopener noreferrer" class="github-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            <span>View on GitHub</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="project-item">
+        <h3><a href="https://trulink.netlify.app/" target="_blank">TrueLink</a></h3>
+        <p>TrueLink is a New Portable for telegram users! It provides efficient search capabilities to help users find content, groups, and channels within the Telegram ecosystem.</p>
+        <div>
+            <span class="tag">Telegram</span>
+            <span class="tag">Portable</span>
+            <span class="tag">Python</span>
+        </div>
+    </div>
 
-        <!-- Open Source Section -->
-        <section id="opensource" class="section">
-            <h2 class="text-3xl font-bold text-center mb-10">Open Source Contribution</h2>
-            <div class="max-w-3xl mx-auto card text-center">
-                <h3 class="text-3xl font-bold mb-2">ShieldStack</h3>
-                <p class="text-white font-semibold mb-4">Your all-in-one security middleware for Express.js</p>
-                <p class="text-gray-300 mb-4">
-                    ShieldStack simplifies the process of securing Node.js/Express applications by bundling essential security headers and middleware (like Helmet, CORS, rate limiting, etc.) into a single, easy-to-use package. It's designed to provide a strong security posture with minimal configuration.
-                </p>
-                <div class="flex gap-4 justify-center">
-                    <a href="https://github.com/ashed2127/Shield-Stack" target="_blank" rel="noopener noreferrer" class="github-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        <span>Explore on GitHub</span>
-                    </a>
-                    <a href="https://www.npmjs.com/package/@neuralpush/shield-stack" target="_blank" rel="noopener noreferrer" class="github-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                        <span>View on npm</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+    <h2>Open Source</h2>
+    
+    <div class="project-item">
+        <h3><a href="https://github.com/ashed2127/Shield-Stack" target="_blank">ShieldStack</a></h3>
+        <p>Your all-in-one security middleware for Express.js. ShieldStack simplifies the process of securing Node.js/Express applications by bundling essential security headers and middleware (like Helmet, CORS, rate limiting, etc.) into a single, easy-to-use package.</p>
+        <div>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">Security</span>
+        </div>
+    </div>
 
-        <!-- Community Section -->
-        <section id="community" class="section">
-            <h2 class="text-3xl font-bold text-center mb-10">Community</h2>
-            <div class="max-w-3xl mx-auto card text-center !p-0 overflow-hidden">
-                <img src="truefeed.jpg" alt="True Feed" class="w-full h-56 object-cover mb-4">
-                <div class="p-6">
-                    <h3 class="text-3xl font-bold mb-2">Join My Community</h3>
-                    <p class="text-white font-semibold mb-4">@true_feed</p>
-                    <p class="text-gray-300 mb-4">
-                        True Feed focuses on business idea raising with system samples and content idea generation with practical examples. Get inspired with actionable business concepts, system architecture ideas, and content strategies to help you grow your projects and reach your goals.
-                    </p>
-                    <a href="https://t.me/true_feed" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-lg transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.64c-1.351.572-1.795 1.79-1.022 3.002l1.583 2.497c.364.575.364 1.297 0 1.872l-1.583 2.497c-.773 1.212-.329 2.43 1.022 3.002l8.609 3.64a2.242 2.242 0 0 0 1.022.215c.796 0 1.44-.67 1.44-1.5v-18c0-.83-.644-1.5-1.44-1.5z"></path></svg>
-                        <span>Join Channel</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+    <h2>Community</h2>
+    
+    <div class="project-item">
+        <h3><a href="https://t.me/true_feed" target="_blank">True Feed</a></h3>
+        <p>True Feed focuses on business idea raising with system samples and content idea generation with practical examples. Get inspired with actionable business concepts, system architecture ideas, and content strategies to help you grow your projects and reach your goals.</p>
+        <div>
+            <span class="tag">Telegram</span>
+            <span class="tag">Community</span>
+            <span class="tag">Business Ideas</span>
+        </div>
+    </div>
 
-        <!-- Contact Section -->
-        <footer id="contact" class="section text-center border-t border-gray-700">
-            <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
-            <p class="text-gray-400 mb-6 max-w-xl mx-auto">I'm currently open to new opportunities and collaborations. Feel free to reach out via email or connect with me on social media.</p>
-            <a href="mailto:ashed2127@gmail.com" class="inline-block bg-white hover:bg-gray-200 text-black font-bold py-3 px-8 rounded-lg transition-colors">
-                Say Hello
-            </a>
-            <div class="flex justify-center gap-6 mt-10">
-                <a href="https://github.com/ashed2127" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub Profile">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/Ashed2127" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn Profile">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-            </div>
-            <p class="text-gray-500 mt-10 text-sm">&copy; 2024 Ashebir Diriba. All Rights Reserved.</p>
-        </footer>
-    </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        // --- Three.js Background Animation (Moving thin lines) ---
-        document.addEventListener('DOMContentLoaded', () => {
-            let scene, camera, renderer, lines;
-            const canvas = document.getElementById('bg-canvas');
-            const lineCount = 100;
-            const linesArray = [];
-            
-            function init() {
-                // Scene
-                scene = new THREE.Scene();
-                
-                // Camera
-                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-                camera.position.z = 400;
-                
-                // Renderer
-                renderer = new THREE.WebGLRenderer({
-                    canvas: canvas,
-                    antialias: true,
-                });
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setClearColor(0x000000, 1); // Match body background
-                
-                // Create thin lines
-                const lineMaterial = new THREE.LineBasicMaterial({
-                    color: 0xFFFFFF,
-                    transparent: true,
-                    opacity: 0.3
-                });
-                
-                for (let i = 0; i < lineCount; i++) {
-                    const points = [];
-                    const lineLength = 50 + Math.random() * 100;
-                    
-                    // Create horizontal lines only
-                    const y = (Math.random() - 0.5) * 600;
-                    const z = (Math.random() - 0.5) * 600;
-                    const startX = (Math.random() - 0.5) * 600;
-                    
-                    points.push(new THREE.Vector3(startX, y, z));
-                    points.push(new THREE.Vector3(startX + lineLength, y, z));
-                    
-                    const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
-                    const line = new THREE.Line(lineGeometry, lineMaterial.clone());
-                    
-                    // Random direction: left or right
-                    const direction = Math.random() > 0.5 ? 1 : -1;
-                    const speed = 0.5 + Math.random() * 1.5;
-                    
-                    linesArray.push({
-                        line: line,
-                        velocity: {
-                            x: direction * speed,
-                            y: 0,
-                            z: 0
-                        },
-                        rotationSpeed: {
-                            x: 0,
-                            y: 0,
-                            z: 0
-                        }
-                    });
-                    
-                    scene.add(line);
-                }
-                
-                animate();
-            }
-            
-            // Animation Loop
-            function animate() {
-                for (let i = 0; i < lineCount; i++) {
-                    const lineObj = linesArray[i];
-                    
-                    // Move lines horizontally only
-                    lineObj.line.position.x += lineObj.velocity.x;
-                    
-                    // Boundary check - wrap around
-                    if (lineObj.line.position.x > 600) {
-                        lineObj.line.position.x = -600;
-                    } else if (lineObj.line.position.x < -600) {
-                        lineObj.line.position.x = 600;
-                    }
-                }
-                
-                renderer.render(scene, camera);
-                requestAnimationFrame(animate);
-            }
-            
-            // Handle window resize
-            function onWindowResize() {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            }
-            
-            window.addEventListener('resize', onWindowResize, false);
-            
-            init();
-        });
-
-        // --- Smooth scrolling for navigation links ---
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // --- Header transparency on scroll ---
-        const header = document.getElementById('header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('bg-black/80', 'backdrop-blur-sm');
-            } else {
-                header.classList.remove('bg-black/80', 'backdrop-blur-sm');
-            }
-        });
-
-        // --- Custom smooth scroll with easing ---
-        function smoothScrollToTop() {
-            const startPosition = window.pageYOffset;
-            const distance = startPosition;
-            const duration = 1500; // 1.5 seconds
-            let start = null;
-
-            function animation(currentTime) {
-                if (start === null) start = currentTime;
-                const timeElapsed = currentTime - start;
-                const progress = Math.min(timeElapsed / duration, 1);
-                
-                // Easing function: slow start, fast middle, slow end
-                const easeInOutQuad = progress < 0.5 
-                    ? 2 * progress * progress 
-                    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-                
-                window.scrollTo(0, startPosition - distance * easeInOutQuad);
-                
-                if (timeElapsed < duration) {
-                    requestAnimationFrame(animation);
-                }
-            }
-            
-            requestAnimationFrame(animation);
-        }
-    </script>
+    <h2>Tech Stack</h2>
+    <div>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express.js</span>
+        <span class="tag">React</span>
+        <span class="tag">Vue.js</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Telegram Bot API</span>
+        <span class="tag">Git & GitHub</span>
+        <span class="tag">Python</span>
+    </div>
 </body>
 </html>
